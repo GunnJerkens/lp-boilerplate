@@ -2,115 +2,58 @@
 
 module.exports = function (grunt) {
 
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+  // load all grunt tasks
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-    // Watch for changes and trigger compass, jshint, uglify and livereload
-    watch: {
-      compass: {
-        files: ['style/sass/{,**/}*.scss'],
-        tasks: ['compass:dev']
-      },
-      js: {
-        files: '<%= jshint.all %>',
-        tasks: ['jshint', 'uglify:dev']
-      },
-      livereload: {
-        options: {
-          livereload: true
-        },
-        files: [
-          'style/css/style.css',
-          'js/*.js',
-          'img/{,**/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
+  grunt.initConfig({
+
+    pkg: grunt.file.readJSON('package.json'),
+ 
+    uglify: {
+      min: {
+        files: {
+          'js/main.js': ['js/src/*.js']
+        }
       }
     },
-
-    // Compass and scss
+ 
     compass: {
-      options: {
-        bundleExec: true,
-        httpPath: '/',
-        cssDir: 'style/css',
-        sassDir: 'style/sass',
-        imagesDir: 'images',
-        javascriptsDir: 'js',
-        assetCacheBuster: 'none',
-        require: [
-          'sass-globbing'
-        ]
-      },
       dev: {
         options: {
-          environment: 'development',
-          outputStyle: 'expanded',
-          relativeAssets: true,
-          raw: 'line_numbers = :true\n'
+          sassDir: 'style/sass',
+          cssDir: 'style/css'
         }
       },
-      dist: {
+      production: {
         options: {
+          sassDir: 'style/sass',
+          cssDir: 'style/css',
           environment: 'production',
-          outputStyle: 'compact',
+          outputStyle: 'compressed',
           force: true
         }
       }
     },
 
-    // Javascript linting with jshint
-    jshint: {
+    watch: {
       options: {
-        jshintrc: '.jshintrc'
+        livereload: true
       },
-      all: [
-        'js/src/*.js'
-      ]
-    },
-
-    // Concat & minify
-    uglify: {
-      dev: {
-        options: {
-          mangle: false,
-          compress: false,
-          preserveComments: 'all',
-          beautify: true
-        },
-        files: {
-          'js/main.js': [
-            'js/src/*.js'
-          ]
-        }
+      scripts: {
+        files: 'js/src/*.js',
+        tasks: ['uglify']
       },
-      dist: {
-        options: {
-          mangle: true,
-          compress: true
-        },
-        files: {
-          'js/main.js': [
-            'js/src/*.js'
-          ]
-        }
+      styles: {
+        files: ['style/sass/**/*.{sass,scss}'],
+        tasks: ['compass:dev']
       }
     },
   });
-
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-
-  grunt.registerTask('build', [
-    'jshint',
-    'uglify:dist',
-    'compass:dist'
-  ]);
-
-  grunt.registerTask('default', [
-    'jshint',
-    'uglify:dev',
-    'compass:dev',
-    'watch'
-  ]);
+ 
+  // Development task checks and concatenates JS, compiles SASS preserving comments and nesting, runs dev server, and starts watch
+  grunt.registerTask('default', ['compass:dev', 'uglify', 'watch']);
+  // Build task builds minified versions of static files
+  grunt.registerTask('build', ['compass:production', 'uglify']);
+  grunt.registerTask('style', ['compass:dev']);
+ 
+ }

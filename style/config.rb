@@ -3,9 +3,7 @@ require 'compass-normalize'
 require 'rgbapng'
 
 # Set this to the root of your project when deployed:
-http_path = "/wp-content/themes/summit800/style/"
-css_dir = "."
-sass_dir = "sass"
+http_path = "/Library/WebServer/Documents/lp-boilerplate"
 images_dir = "../img"
 javascripts_dir = "../js"
 
