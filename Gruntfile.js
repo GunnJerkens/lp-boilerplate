@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     uglify: {
       min: {
         files: {
-          'js/main.js': ['js/src/*.js']
+          'public/js/main.js': ['src/*.js']
         }
       }
     },
@@ -20,14 +20,14 @@ module.exports = function (grunt) {
     compass: {
       dev: {
         options: {
-          sassDir: 'style/sass',
-          cssDir: 'style/css'
+          sassDir: 'public/style/sass',
+          cssDir: 'public/style/css'
         }
       },
       production: {
         options: {
-          sassDir: 'style/sass',
-          cssDir: 'style/css',
+          sassDir: 'public/style/sass',
+          cssDir: 'public/style/css',
           environment: 'production',
           outputStyle: 'compressed',
           force: true
@@ -40,11 +40,11 @@ module.exports = function (grunt) {
         livereload: true
       },
       scripts: {
-        files: 'js/src/*.js',
+        files: 'src/*.js',
         tasks: ['uglify']
       },
       styles: {
-        files: ['style/sass/**/*.{sass,scss}'],
+        files: ['public/style/sass/**/*.{sass,scss}'],
         tasks: ['compass:dev']
       }
     },
