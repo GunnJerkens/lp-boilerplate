@@ -1,2 +1,4 @@
 node_modules
-public/style/.sass-cache
+.sass-cache
+.DS_Store
+.dbthumbs

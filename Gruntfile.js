@@ -12,26 +12,43 @@ module.exports = function (grunt) {
     uglify: {
       min: {
         files: {
-          'public/js/main.js': ['src/*.js']
+          'public/js/main.js': ['public/js/src/libs/*.js','public/js/src/*.js']
         }
       }
     },
  
     compass: {
-      dev: {
+      dist: {
         options: {
+          config: 'public/style/config.rb',
           sassDir: 'public/style/sass',
-          cssDir: 'public/style/css'
-        }
-      },
-      production: {
-        options: {
-          sassDir: 'public/style/sass',
-          cssDir: 'public/style/css',
+          imagesDir: 'public/img',
+          cssDir: 'public/style',
           environment: 'production',
           outputStyle: 'compressed',
           force: true
         }
+      }
+    },
+
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'public/img/src',
+          src: ['*.{png,jpg,gif}'],
+          dest: 'public/img/'
+        }]
+      }
+    },
+
+    browser_sync: {
+      files: {
+        src: 'public/style/screen.css'
+      },
+      options: {
+          host: "localhost",
+          watchTask: true
       }
     },
 
@@ -40,20 +57,21 @@ module.exports = function (grunt) {
         livereload: true
       },
       scripts: {
-        files: 'src/*.js',
+        files: ['public/js/src/*.js','public/js/src/libs/*.js'],
         tasks: ['uglify']
       },
       styles: {
-        files: ['public/style/sass/**/*.{sass,scss}'],
-        tasks: ['compass:dev']
+        files: ['public/style/**/*.{sass,scss}','public/img/ui/*.png'],
+        tasks: ['compass']
+      },
+      images: {
+        files: ['public/img/src/*.{png,jpg,gif}'],
+        tasks: ['imagemin']
       }
     },
   });
  
   // Development task checks and concatenates JS, compiles SASS preserving comments and nesting, runs dev server, and starts watch
-  grunt.registerTask('default', ['compass:dev', 'uglify', 'watch']);
-  // Build task builds minified versions of static files
-  grunt.registerTask('build', ['compass:production', 'uglify']);
-  grunt.registerTask('style', ['compass:dev']);
+  grunt.registerTask('default', ['compass', 'uglify', 'imagemin', 'browser_sync', 'watch']);
  
  }
