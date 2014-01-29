@@ -10,6 +10,7 @@
     <script type='text/javascript' src='js/modernizr.min.js'></script>
     <script type='text/javascript' src='js/respond.min.js'></script>
     <link rel="stylesheet" href="style/screen.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
