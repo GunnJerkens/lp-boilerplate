@@ -1,4 +1,12 @@
-<?php include_once('inc/header.php'); ?>
+<?php
+
+  // Example description & title
+  $description = "This is my description";
+  $title = "Home Page";
+
+  include_once('inc/header.php');
+
+?>
 
 <section class="container">
   <article class="col-xs-6">
