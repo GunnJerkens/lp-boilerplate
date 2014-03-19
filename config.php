@@ -16,6 +16,7 @@
 
 $default_title = 'lp-boilerplate';
 $default_description = 'A simple boilerplate with some cool things.';
+$google_analytics = 'UA-xxxxxxxx-x';
 
 /**
 * Environments:
