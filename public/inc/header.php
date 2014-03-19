@@ -8,6 +8,7 @@
     if ($environment === 'production') { echo '<meta name="robots" content="index, follow">'; } 
     else { echo '<meta name="robots" content="noindex, nofollow">'; } ?>
     <title><?php echo theTitle(); ?></title>
+    <link rel="shortcut icon" href="img/favicon.png" />
     <meta name="description" content="<?php echo theDescription(); ?>">
     <link rel="stylesheet" href="style/screen.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
