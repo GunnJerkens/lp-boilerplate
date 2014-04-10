@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="style/screen.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <script type='text/javascript' src='js/modernizr.min.js'></script>
-    <script type='text/javascript' src='js/respond.min.js'></script>
     <?php if($environment === 'production') { ?>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
