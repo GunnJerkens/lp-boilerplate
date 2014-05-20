@@ -12,7 +12,7 @@
     <meta name="description" content="<?php echo theDescription(); ?>">
     <link rel="stylesheet" href="style/screen.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <script type='text/javascript' src='js/modernizr.min.js'></script>
+    <script type='text/javascript' src='js/modernizr.js'></script>
     <?php echo theAnalytics(); ?>
   </head>
   <body>
