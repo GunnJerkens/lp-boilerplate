@@ -10,8 +10,12 @@
     <title><?php echo theTitle(); ?></title>
     <link rel="shortcut icon" href="img/favicon.png" />
     <meta name="description" content="<?php echo theDescription(); ?>">
-    <link rel="stylesheet" href="style/screen.css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/screen.css"><?php
+
+    // Cache buster for stylesheet
+    $stylesheet = 'style/screen.css?' . filemtime('style/screen.css'); ?>
+    <link rel="stylesheet" href="<?php echo $stylesheet; ?>">
+
     <script type='text/javascript' src='js/modernizr.js'></script>
     <?php echo theAnalytics(); ?>
   </head>
