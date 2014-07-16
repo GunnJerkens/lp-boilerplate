@@ -43,7 +43,7 @@ module.exports = (grunt) ->
       options:
         livereload: true
       scripts:
-        files: ['public/js/src/*.js','public/js/src/libs/*.js']
+        files: ['public/js/src/*.js','public/js/src/libs/*.js','public/js/src/bootstrap/*.js']
         tasks: ['concat']
       styles:
         files: ['public/style/**/*.{sass,scss}','public/img/ui/*.png']
