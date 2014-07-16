@@ -10,7 +10,7 @@ module.exports = (grunt) ->
     concat:
       min:
         files:
-          'public/js/main.js': ['public/js/src/libs/*.js','public/js/src/*.js']
+          'public/js/main.js': ['public/js/src/libs/*.js','public/js/src/*.js','public/js/src/bootstrap/*.js']
 
     compass:
       dist:
