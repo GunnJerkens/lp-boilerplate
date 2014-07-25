@@ -9,12 +9,8 @@
     else { echo '<meta name="robots" content="noindex, nofollow">'; } ?>
     <title><?php echo theTitle(); ?></title>
     <link rel="shortcut icon" href="img/favicon.png" />
-    <meta name="description" content="<?php echo theDescription(); ?>"><?php
-
-    // Cache buster for stylesheet
-    $stylesheet = 'style/screen.css?' . filemtime('style/screen.css'); ?>
-    <link rel="stylesheet" href="<?php echo $stylesheet; ?>">
-
+    <meta name="description" content="<?php echo theDescription(); ?>">
+    <link rel="stylesheet" href="<?php echo 'style/screen.css?' . filemtime('style/screen.css'); ?>">
     <script type='text/javascript' src='js/modernizr.js'></script>
     <?php echo theAnalytics(); ?>
   </head>
