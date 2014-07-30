@@ -1,4 +1,4 @@
-LP-Boilerplate
+Landing Page Boilerplate
 ===
 A starting point for small landing pages and websites that do not require a database.  
 
