@@ -10,7 +10,21 @@ module.exports = (grunt) ->
     concat:
       min:
         files:
-          'public/js/main.js': ['public/js/src/libs/*.js','public/js/src/*.js','public/js/src/bootstrap/*.js']
+          'public/js/main.js': [
+            'public/js/src/libs/*.js',
+            'public/js/src/bootstrap/affix.js',
+            'public/js/src/bootstrap/alert.js',
+            'public/js/src/bootstrap/button.js',
+            'public/js/src/bootstrap/collapse.js',
+            'public/js/src/bootstrap/dropdown.js',
+            'public/js/src/bootstrap/tab.js',
+            'public/js/src/bootstrap/transition.js',
+            'public/js/src/bootstrap/scrollspy.js',
+            'public/js/src/bootstrap/modal.js',
+            'public/js/src/bootstrap/tooltip.js',
+            'public/js/src/bootstrap/popover.js',
+            'public/js/src/*.js'
+          ]
 
     compass:
       dist:
@@ -32,7 +46,7 @@ module.exports = (grunt) ->
           dest: 'public/img/'
         ]
 
-    browser_sync:
+    browserSync:
       files:
         src: 'public/style/screen.css'
       options:
@@ -53,4 +67,4 @@ module.exports = (grunt) ->
         tasks: ['imagemin']
 
   # Development task checks and concatenates JS, compiles SASS preserving comments and nesting, runs dev server, and starts watch
-  grunt.registerTask 'default', ['compass', 'concat', 'imagemin', 'browser_sync', 'watch']
+  grunt.registerTask 'default', ['compass', 'concat', 'imagemin', 'browserSync', 'watch']

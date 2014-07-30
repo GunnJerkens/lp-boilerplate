@@ -2,8 +2,7 @@
     <script src="<?php echo 'js/main.js?' . filemtime('js/main.js'); ?>"></script><?php
 
     if ($environment === 'dev') {
-     echo "<script src='http://localhost:3000/socket.io/socket.io.js'></script>";
-     echo "<script src='http://localhost:3001/browser-sync-client.min.js'></script>";
+      echo '<script async src="'.$hostname.':3000/browser-sync-client.1.3.0.js"></script>';
     } ?>
 
   </body>
