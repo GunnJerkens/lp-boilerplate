@@ -26,6 +26,25 @@ module.exports = (grunt) ->
             'public/js/src/*.js'
           ]
 
+    uglify:
+      min:
+        files:
+          'public/js/main.js': [
+            'public/js/src/libs/*.js',
+            'public/js/src/bootstrap/affix.js',
+            'public/js/src/bootstrap/alert.js',
+            'public/js/src/bootstrap/button.js',
+            'public/js/src/bootstrap/collapse.js',
+            'public/js/src/bootstrap/dropdown.js',
+            'public/js/src/bootstrap/tab.js',
+            'public/js/src/bootstrap/transition.js',
+            'public/js/src/bootstrap/scrollspy.js',
+            'public/js/src/bootstrap/modal.js',
+            'public/js/src/bootstrap/tooltip.js',
+            'public/js/src/bootstrap/popover.js',
+            'public/js/src/*.js'
+          ]
+
     compass:
       dist:
         options:
@@ -36,15 +55,6 @@ module.exports = (grunt) ->
           environment: 'production'
           outputStyle: 'compressed'
           force: true
-
-    imagemin:
-      dynamic:
-        files: [
-          expand: true
-          cwd: 'public/img/src'
-          src: ['*.{png,jpg,gif}']
-          dest: 'public/img/'
-        ]
 
     browserSync:
       files:
@@ -62,9 +72,7 @@ module.exports = (grunt) ->
       styles:
         files: ['public/style/**/*.{sass,scss}','public/img/ui/*.png']
         tasks: ['compass']
-      images:
-        files: ['public/img/src/*.{png,jpg,gif}']
-        tasks: ['imagemin']
 
   # Development task checks and concatenates JS, compiles SASS preserving comments and nesting, runs dev server, and starts watch
-  grunt.registerTask 'default', ['compass', 'concat', 'imagemin', 'browserSync', 'watch']
+  grunt.registerTask 'dev', ['compass', 'concat', 'browserSync', 'watch']
+  grunt.registerTask 'default', ['compass', 'uglify']
