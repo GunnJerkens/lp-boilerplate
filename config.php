@@ -81,6 +81,7 @@ function theAnalytics() {
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', '$google_analytics', '$hostname');
+        ga('require', 'displayfeatures');
         ga('send', 'pageview');
 
       </script>
