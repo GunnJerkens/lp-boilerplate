@@ -68,11 +68,11 @@ module.exports = (grunt) ->
         livereload: true
       scripts:
         files: ['public/js/src/*.js','public/js/src/libs/*.js','public/js/src/bootstrap/*.js']
-        tasks: ['concat']
+        tasks: ['uglify']
       styles:
         files: ['public/style/**/*.{sass,scss}','public/img/ui/*.png']
         tasks: ['compass']
 
   # Development task checks and concatenates JS, compiles SASS preserving comments and nesting, runs dev server, and starts watch
-  grunt.registerTask 'dev', ['compass', 'concat', 'browserSync', 'watch']
-  grunt.registerTask 'default', ['compass', 'uglify']
+  grunt.registerTask 'dev', ['compass', 'concat']
+  grunt.registerTask 'default', ['compass', 'uglify', 'browserSync', 'watch']
