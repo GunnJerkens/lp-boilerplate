@@ -70,9 +70,8 @@ function theDescription() {
 }
 
 function theAnalytics() {
-  global $environment, $hostname, $google_analytics;
+  global $environment, $google_analytics;
   if($environment === 'production') {
-    $hostname = parse_url($hostname, PHP_URL_HOST);
     $analytics = "
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
