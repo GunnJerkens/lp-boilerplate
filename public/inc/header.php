@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="img/favicon.png" />
     <meta name="description" content="<?php echo theDescription(); ?>">
     <link rel="stylesheet" href="<?php echo 'style/screen.css?' . filemtime('style/screen.css'); ?>">
-    <script type='text/javascript' src='js/modernizr.js'></script>
+    <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
     <?php echo theAnalytics(); ?>
   </head>
   <body>
