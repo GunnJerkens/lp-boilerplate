@@ -15,7 +15,7 @@ To use the ajax script just call the function on your element and pass it option
 ### Instantiate
 ```
 $('#register').gjAjax({
-  path: "/path/to/ajax-php/script",
+  path: "/submit.php",
   success: "Success message"
 });
 ```
@@ -46,6 +46,8 @@ The form looks for an object on success or failure formatted as an object. If a 
   message: "This was a successful submission."
 }
 ```
+
+** See `public/submit.php` for example submission boilerplate code **
 
 ## features
 
