@@ -16,7 +16,7 @@
   gjAjax.prototype.run = function() {
     var self = this;
     self.listen();
-  }
+  };
 
   gjAjax.prototype.listen = function() {
     var self = this;
@@ -43,7 +43,7 @@
         self.errorOutput();
       }
     });
-  }
+  };
 
   gjAjax.prototype.checkFields = function() {
     var self = this;
@@ -84,7 +84,7 @@
       }
 
     });
-  }
+  };
 
   gjAjax.prototype.errorOutput = function(status, message, el) {
     var self = this;
@@ -92,19 +92,19 @@
     self.output.status  = status;
     self.output.message = message;
     self.output.element = el;
-  }
+  };
 
   gjAjax.prototype.looseEmailValidate = function(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
-  }
+  };
 
   gjAjax.prototype.clearErrors = function() {
     var self = this;
 
     $('.has-error').removeClass('has-error');
     self.el.find('#error').empty();
-  }
+  };
 
   gjAjax.prototype.errorOutput = function(status, message, element) {
     var self = this;
@@ -115,7 +115,7 @@
       self.el.find('#error').append(message);
       element.closest('div.form-group').addClass('has-error');
     }
-  }
+  };
 
   gjAjax.prototype.successMessage = function(data) {
     var self = this, response = JSON.parse(data);
@@ -129,12 +129,12 @@
       self.el.find('#error').append('<i class="fa fa-close"></i>  ' + response.message);
       $('button[type="submit"]').toggle();
     }
-  }
+  };
 
   $.fn.gjAjax = function(options) {
     var ajax = new gjAjax(this, options);
     ajax.run();
-  }
+  };
 
 })(jQuery);
 
