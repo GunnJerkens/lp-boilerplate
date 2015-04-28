@@ -19,10 +19,10 @@ $('#register').gjAjax({
 });
 ```
 
-| Option        | Value         | Notes                                          |
-| ------------- |:--------------|:-----------------------------------------------|
-| Path          | String        | Relative path                                  |
-| Success       | String        | Success message after form submits succesfully |
+| Option        | Value         | Notes                                           |
+| ------------- |:--------------|:------------------------------------------------|
+| Path          | String        | Relative path                                   |
+| Success       | String        | Success message after form submits successfully |
 
 ## features
 
