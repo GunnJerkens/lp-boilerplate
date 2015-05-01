@@ -72,6 +72,11 @@
           return false;
         }
 
+        if('checkbox' === type && !el.is(':checked')) {
+          self.errorOutput('error', field_name + ' is required.', el);
+          return false;
+        }
+
         if('radio' === type && !el.is(':checked') && !el.closest('div.form-group').find(':input').is(':checked')) {
           self.errorOutput('error', '<i class="fa fa-close"></i> Field ' + field_name + ' is required.', el);
           return false;
