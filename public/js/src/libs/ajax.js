@@ -1,7 +1,8 @@
-/**
- * Gunn/Jerkens ajax script
- *
- * Expects you to be using bootstrap markup (form-group, form-control). See lp-boilerplate readme for specific usage.
+/* GJ Ajax v1.0.0
+ * Copyright 2015 Gunn/Jerkens
+ * Updated 05/01/15
+ * Authors: Patrick Shampine https://github.com/shampine
+ * See the lp-boilerplate README for how to use in a project.
  */
 ;(function($) {
 
