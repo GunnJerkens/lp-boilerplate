@@ -15,15 +15,17 @@ To use the ajax script just call the function on your element and pass it option
 ### Instantiate
 ```
 $('#register').gjAjax({
-  path: "/submit.php",
-  success: "Success message"
+  path:       "/submit.php",
+  success:    "Success message",
+  conversion: true
 });
 ```
 
-| Option        | Value         | Notes                                           |
-| ------------- |:--------------|:------------------------------------------------|
-| Path          | String        | Relative path                                   |
-| Success       | String        | Success message after form submits successfully |
+| Option        | Value         | Notes                                              |
+| ------------- |:--------------|:---------------------------------------------------|
+| Path          | String        | Relative path                                      |
+| Success       | String        | Success message after form submits successfully    |
+| Conversion    | Bool          | See markup section for category/action/label in GA |
 
 ### Markup
 
@@ -35,6 +37,8 @@ Markup needs to be formatted in Bootstrap 3 style. The class `.has-error` is app
   <input type="text" name="field" id="field" class="form-control" placeholder="Field" required>
 </div>
 ```
+
+If using the conversion flag, in Google Analytics you need to have a Goal setup as Type `Event`. With the Category as `Form`, Action as `Submission`, and Label as `Form Submission`. This will fire a goal completion on every ajax success.
 
 ### Response
 
