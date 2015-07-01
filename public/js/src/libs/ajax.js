@@ -69,33 +69,33 @@
         field_name = field_name.replace('*', '').toLowerCase();
 
         if(value === "" || value === null) {
-          self.errorOutput('error','<i class="fa fa-close"></i> Field ' + field_name + ' is required.', el);
+          self.setOutput('error','<i class="fa fa-close"></i> Field ' + field_name + ' is required.', el);
           return false;
         }
 
         if('checkbox' === type && !el.is(':checked')) {
-          self.errorOutput('error', field_name + ' is required.', el);
+          self.setOutput('error', field_name + ' is required.', el);
           return false;
         }
 
         if('radio' === type && !el.is(':checked') && !el.closest('div.form-group').find(':input').is(':checked')) {
-          self.errorOutput('error', '<i class="fa fa-close"></i> Field ' + field_name + ' is required.', el);
+          self.setOutput('error', '<i class="fa fa-close"></i> Field ' + field_name + ' is required.', el);
           return false;
         }
 
         if('email' === type && false === self.looseEmailValidate(value)) {
-          self.errorOutput('error', '<i class="fa fa-close"></i> Your email is not valid.', el);
+          self.setOutput('error', '<i class="fa fa-close"></i> Your email is not valid.', el);
           return false;
         }
 
       } else {
-        self.errorOutput('success', "All fields complete.", null);
+        self.setOutput('success', "All fields complete.", null);
       }
 
     });
   };
 
-  gjAjax.prototype.errorOutput = function(status, message, el) {
+  gjAjax.prototype.setOutput = function(status, message, el) {
     var self = this;
 
     self.output.status  = status;
