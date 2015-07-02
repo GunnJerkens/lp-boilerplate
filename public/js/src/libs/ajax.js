@@ -7,11 +7,9 @@
 ;(function($) {
 
   function gjAjax(el, options) {
-    var self = this;
-
-    self.el      = el;
-    self.options = options;
-    self.output  = { status: 'success', message: "All fields complete.", element: null };
+    this.el      = el;
+    this.options = options;
+    this.output  = { status: 'success', message: "All fields complete.", element: null };
   }
 
   gjAjax.prototype.run = function() {
@@ -96,11 +94,9 @@
   };
 
   gjAjax.prototype.setOutput = function(status, message, el) {
-    var self = this;
-
-    self.output.status  = status;
-    self.output.message = message;
-    self.output.element = el;
+    this.output.status  = status;
+    this.output.message = message;
+    this.output.element = el;
   };
 
   gjAjax.prototype.looseEmailValidate = function(email) {
@@ -115,14 +111,11 @@
     self.el.find('#error').empty();
   };
 
-  gjAjax.prototype.errorOutput = function(status, message, element) {
-    var self = this;
+  gjAjax.prototype.errorOutput = function() {
+    this.el.find('#error').append(this.output.message);
 
-    self.output = { status: status, message: message, element: element };
-
-    if("error" === status) {
-      self.el.find('#error').append(message);
-      element.closest('div.form-group').addClass('has-error');
+    if(this.output.element !== null) {
+      this.output.element.closest('div.form-group').addClass('has-error');
     }
   };
 
@@ -146,4 +139,3 @@
   };
 
 })(jQuery);
-
