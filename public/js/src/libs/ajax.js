@@ -37,8 +37,8 @@
         $.post(url, { post : data },
         function(response) {
           self.successMessage(response);
-          if(self.options.conversion === true && typeof ga != 'undefined') {
-            ga('send', 'event', 'Form', 'Submit', 'Form Submission');
+          if(self.options.conversion === true && typeof dataLayer !== 'undefined') {
+            dataLayer.push({'event': 'formSubmitted'});
           }
         });
       } else {

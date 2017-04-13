@@ -38,7 +38,7 @@ Markup needs to be formatted in Bootstrap 3 style. The class `.has-error` is app
 </div>
 ```
 
-If using the conversion flag, in Google Analytics you need to have a Goal setup as Type `Event`. With the Category as `Form`, Action as `Submission`, and Label as `Form Submission`. This will fire a goal completion on every ajax success.
+If you want to set up a trigger in Google Tag Manager to detect a form submission, a custom GTM event called "formSubmitted" is fired on every ajax success.
 
 ### Response
 
