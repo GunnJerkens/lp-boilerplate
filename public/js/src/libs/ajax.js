@@ -23,7 +23,7 @@
     $('body').on('submit', self.el['selector'], function(e) {
       e.preventDefault();
 
-      var url   = 'http://' + window.location.host + self.options.path,
+      var url   = window.location.protocol + '//' + window.location.host + self.options.path,
           data  = $(this).serialize();
 
       self.checkFields();
