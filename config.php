@@ -30,7 +30,7 @@ if ( file_exists( dirname( __FILE__ ) . '/env_local' ) ) {
 
   // Local Environment
   $environment = 'dev';
-  $hostname = 'http://example.dev';
+  $hostname = 'http://example.test';
 
 } elseif ( file_exists( dirname( __FILE__ ) . '/env_staging' ) ) {
 

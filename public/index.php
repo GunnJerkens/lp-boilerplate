@@ -9,7 +9,7 @@
 ?>
 
 <section class="container">
-  <article class="col-xs-6">
+  <article class="col-6">
     <h1>lp-boilerplate</h1>
     <p>
       Environment: <?php echo $environment; ?><br />

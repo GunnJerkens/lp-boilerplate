@@ -4,9 +4,8 @@ A starting point for small landing pages and websites that do not require a data
 
 ## usage
 
-1. `npm install` to install the grunt dependencies
-2. Modify the config.php file to match environment needs
-3. grunt -v to start grunt tasks
+1. `npm install` to install the webpack dependencies
+2. `npm run watch` to start webpack watch
 
 ## ajax
 
@@ -14,11 +13,18 @@ To use the ajax script just call the function on your element and pass it option
 
 ### Instantiate
 ```
-$('#register').gjAjax({
-  path:       "/submit.php",
-  success:    "Success message",
-  conversion: true
-});
+import gjAjax from './libs/ajax';
+
+const register = document.querySelector('form#register');
+
+if (register) {
+  const ajax = new gjAjax(register, {
+    path:       "/submit.php",
+    success:    "Success message",
+    conversion: true
+  });
+  ajax.run();
+}
 ```
 
 | Option        | Value         | Notes                                              |
@@ -29,7 +35,7 @@ $('#register').gjAjax({
 
 ### Markup
 
-Markup needs to be formatted in Bootstrap 3 style. The class `.has-error` is appended to the closest parent `.form-group` and the field name in the error message is primarily pulled from the preceding label, the closest label (in case of checkbox), or finally the fields `name` attribute.
+Markup needs to be formatted in Bootstrap 4 style. The class `.has-error` is appended to the closest parent `.form-group` and the field name in the error message is primarily pulled from the preceding label, the closest label (in case of checkbox), or finally the fields `name` attribute.
 
 ```
 <div class="form-group">
