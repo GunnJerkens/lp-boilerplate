@@ -4,6 +4,8 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
+require('babel-polyfill');
+require('whatwg-fetch');
 
 const extractSass = new ExtractTextPlugin({
   filename: '../style/screen.css'
@@ -21,6 +23,8 @@ module.exports = (env) => {
 
   return {
     entry: [
+      'babel-polyfill',
+      'whatwg-fetch',
       './public/js/src/scripts.js',
       './public/style/sass/screen.scss'
     ],
