@@ -9,15 +9,17 @@
 ?>
 
 <section class="container">
-  <article class="col-6">
-    <h1>lp-boilerplate</h1>
-    <p>
-      Environment: <?php echo $environment; ?><br />
-      Hostname: <?php echo $hostname; ?><br />
-      Site Title: <?php echo $default_title; ?><br />
-      Site Description: <?php echo $default_description; ?><br />
-    </p>
-  </article>
-<section>
+  <div class="row">
+    <article class="col-6">
+      <h1>lp-boilerplate</h1>
+      <p>
+        Environment: <?php echo $environment; ?><br />
+        Hostname: <?php echo $hostname; ?><br />
+        Site Title: <?php echo $default_title; ?><br />
+        Site Description: <?php echo $default_description; ?><br />
+      </p>
+    </article>
+  </div>
+</section>
 
 <?php include_once('inc/footer.php'); ?>
