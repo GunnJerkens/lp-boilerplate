@@ -26,23 +26,29 @@ $google_tag_manager = 'GTM-XXXXXX';
 *
 **/
 
+$protocol = 'http';
+
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+  $protocol = 'https';
+}
+
 if ( file_exists( dirname( __FILE__ ) . '/env_local' ) ) {
 
   // Local Environment
   $environment = 'dev';
-  $hostname = 'http://example.test';
+  $hostname = $protocol.'://example.test';
 
 } elseif ( file_exists( dirname( __FILE__ ) . '/env_staging' ) ) {
 
   // Staging Environment
   $environment = 'staging';
-  $hostname = 'http://dev.example.com';
+  $hostname = $protocol.'://dev.example.com';
 
 } else {
 
   // Production Environment
   $environment = 'production';
-  $hostname = 'http://example.com';
+  $hostname = $protocol.'://example.com';
 }
 
 /**
