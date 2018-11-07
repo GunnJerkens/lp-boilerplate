@@ -16,6 +16,11 @@ module.exports = (env) => {
   // set plugins - uncomment BrowserSyncPlugin and update host/ proxy values to enable browser-sync
   const plugins = [
     extractSass,
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(env.NODE_ENV)
+      }
+    })
     // new BrowserSyncPlugin({
     //   open: 'external',
     //   host: 'example.test',
@@ -24,7 +29,7 @@ module.exports = (env) => {
     // })
   ];
 
-  if (env.NODE_ENV === 'prod') {
+  if (env.NODE_ENV === 'production') {
     plugins.push(
       new MinifyPlugin()
     );
@@ -60,7 +65,7 @@ module.exports = (env) => {
             {
               loader: 'css-loader',
               options: {
-                minimize: env.NODE_ENV === 'prod'
+                minimize: env.NODE_ENV === 'production'
               }
             },
             'postcss-loader',
